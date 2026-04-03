@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "about": "About",
+    "reviews": "Reviews",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "tagline": "All-in-One Free Tools for Students",
+    "sub": "Convert PDFs, resize images, compress photos and more — 100% free, works in your browser, no data uploaded.",
+    "cta": "Explore Tools",
+    "cta2": "Read My Story"
+  },
+  "badges": {
+    "free": "Free Forever",
+    "noUpload": "No Upload Required",
+    "privacy": "Privacy Safe"
+  },
+  "tools": {
+    "title": "All Tools",
+    "subtitle": "Everything a student needs — in one place",
+    "pdfToJpg": { "name": "PDF to JPG", "desc": "Convert PDF pages to high-quality JPG images instantly." },
+    "jpgToPng": { "name": "JPG to PNG", "desc": "Convert JPG images to transparent PNG format." },
+    "imageResizer": { "name": "Image Resizer", "desc": "Resize to exact px, cm or mm. No quality loss." },
+    "profilePic": { "name": "Profile Picture", "desc": "Make round profile pictures with border & background." },
+    "idCard": { "name": "ID Card Joiner", "desc": "Merge Aadhaar / ID front & back into one page." },
+    "datePhoto": { "name": "Date on Photo", "desc": "Add name & date strip for SSC/Railway forms." },
+    "pdfMerger": { "name": "PDF Merger", "desc": "Merge multiple PDFs or images into one PDF." },
+    "imageConverter": { "name": "Image Converter", "desc": "Convert between JPG, PNG and WEBP formats." },
+    "imageCompressor": { "name": "Image Compressor", "desc": "Compress image to exact KB — 20KB, 50KB, etc." }
+  },
+  "about": {
+    "title": "Who Am I?",
+    "overline": "My Story",
+    "p1": "I am Ritik Ranjan, a B.Tech Computer Science graduate from a village background.",
+    "p2": "Growing up, I saw many students around me struggling with small digital tasks like resizing images, converting PDFs, or filling online forms. These tasks, though simple, cost them ₹50–₹100 at cyber cafes — which is a big amount for economically weaker students.",
+    "p3": "Many of my friends used to ask me to help them, and I always did it for free. That's when I realized — why not build a platform where anyone can do these tasks themselves, easily and for free?",
+    "mission": "Make digital tools accessible to every student without cost."
+  },
+  "reviews": {
+    "title": "Your Reviews Matter",
+    "subtitle": "Your reviews and suggestions help me improve!",
+    "namePlaceholder": "Your Name",
+    "messagePlaceholder": "Write your review or suggestion...",
+    "submit": "Send to Developer",
+    "success": "Thank you! Your review has been submitted 🎉",
+    "error": "Something went wrong. Please try again."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Common questions from students",
+    "q1": "How to compress image to 20KB?",
+    "a1": "Use our Image Compressor tool. Upload your image, set target size to 20KB and click compress. Preview the result before downloading.",
+    "q2": "How to resize photo for SSC / UPSC forms?",
+    "a2": "Use the Image Resizer tool. Enter the required dimensions (e.g. 3.5cm × 4.5cm or 200×230 px), upload your photo and download.",
+    "q3": "How to merge Aadhaar front and back?",
+    "a3": "Use the ID Card Joiner tool. Upload front and back images separately — they get placed side-by-side on one A4 PDF page.",
+    "q4": "Is my data safe? Do you store my files?",
+    "a4": "100% safe! All processing happens inside your browser itself. Your files are never uploaded to any server. We cannot see your files.",
+    "q5": "What is the difference between JPG, PNG and WEBP?",
+    "a5": "JPG is best for photos (smaller size). PNG supports transparency (good for logos). WEBP is a modern format with best compression. Our converter handles all three.",
+    "q6": "Do I need to create an account to use tools?",
+    "a6": "No! All tools are completely free and require zero registration. Just open the tool and start working."
+  },
+  "footer": {
+    "tagline": "Free tools built with ❤️ for every student.",
+    "about": "About",
+    "contact": "Contact Developer",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "copy": "© 2026 RanjanTools. All rights reserved."
+  },
+  "common": {
+    "upload": "Upload File",
+    "dragDrop": "Drag & drop or click to upload",
+    "download": "Download",
+    "reset": "Reset",
+    "processing": "Processing...",
+    "preview": "Preview",
+    "openTool": "Open Tool",
+    "backHome": "← Back to Home",
+    "supported": "Supported formats"
+  }
+}

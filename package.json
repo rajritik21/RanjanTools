@@ -1,0 +1,11 @@
+{
+  "name": "ranjantools",
+  "version": "1.0.0",
+  "description": "RanjanTools - Free Student Utility Platform",
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "dev": "start cmd /k \"cd client && npm run dev\" && start cmd /k \"cd server && npm run dev\"",
+    "install:all": "cd client && npm install && cd ../server && npm install"
+  }
+}
