@@ -4,15 +4,8 @@ import { ConfigProvider, theme as antTheme } from 'antd'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import HomePage from './pages/HomePage'
-import PdfToJpgPage from './pages/tools/PdfToJpgPage'
-import JpgToPngPage from './pages/tools/JpgToPngPage'
-import ImageResizerPage from './pages/tools/ImageResizerPage'
-import ProfilePicturePage from './pages/tools/ProfilePicturePage'
-import IdCardJoinerPage from './pages/tools/IdCardJoinerPage'
-import DateOnPhotoPage from './pages/tools/DateOnPhotoPage'
-import PdfMergerPage from './pages/tools/PdfMergerPage'
-import ImageConverterPage from './pages/tools/ImageConverterPage'
-import ImageCompressorPage from './pages/tools/ImageCompressorPage'
+import ToolPage from './pages/tools/ToolPage'
+import CategoryPage from './pages/CategoryPage'
 import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
 import useStore from './store/useStore'
@@ -40,16 +33,18 @@ export default function App() {
           <Navbar />
           <main style={{ flex: 1 }}>
             <Routes>
+              {/* Home */}
               <Route path="/" element={<HomePage />} />
-              <Route path="/tools/pdf-to-jpg" element={<PdfToJpgPage />} />
-              <Route path="/tools/jpg-to-png" element={<JpgToPngPage />} />
-              <Route path="/tools/image-resizer" element={<ImageResizerPage />} />
-              <Route path="/tools/profile-picture" element={<ProfilePicturePage />} />
-              <Route path="/tools/id-card-joiner" element={<IdCardJoinerPage />} />
-              <Route path="/tools/date-on-photo" element={<DateOnPhotoPage />} />
-              <Route path="/tools/pdf-merger" element={<PdfMergerPage />} />
-              <Route path="/tools/image-converter" element={<ImageConverterPage />} />
-              <Route path="/tools/image-compressor" element={<ImageCompressorPage />} />
+
+              {/* Dynamic tool pages — ONE route for ALL tools */}
+              <Route path="/tools/:slug" element={<ToolPage />} />
+
+              {/* Category pages — auto-populated from config */}
+              <Route path="/pdf-tools" element={<CategoryPage categoryId="pdf" />} />
+              <Route path="/image-tools" element={<CategoryPage categoryId="image" />} />
+              <Route path="/smart-utilities" element={<CategoryPage categoryId="utility" />} />
+
+              {/* Legal */}
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
             </Routes>

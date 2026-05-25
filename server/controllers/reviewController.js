@@ -4,13 +4,13 @@ const Review = require('../models/Review')
 // @route POST /api/reviews
 const createReview = async (req, res) => {
   try {
-    const { name, message } = req.body
+    const { name, message, rating } = req.body
 
     if (!name || !message) {
       return res.status(400).json({ success: false, error: 'Name and message are required.' })
     }
 
-    const review = await Review.create({ name, message })
+    const review = await Review.create({ name, message, rating: rating || 5 })
     res.status(201).json({ success: true, data: review })
   } catch (err) {
     if (err.name === 'ValidationError') {

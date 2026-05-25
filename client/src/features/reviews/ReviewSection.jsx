@@ -37,117 +37,182 @@ export default function ReviewSection() {
   const COLORS = ['#5b6af5', '#f97316', '#22c55e', '#ec4899', '#14b8a6', '#8b5cf6']
 
   return (
-    <section id="reviews" className="section">
-      <div className="container">
-        <div className="section-header">
-          <span className="overline">REVIEWS</span>
-          <h2>{t('reviews.title')}</h2>
-          <p>{t('reviews.subtitle')}</p>
+    <section id="reviews" className="section" style={{
+      background: '#0a0f1d',
+      backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0)`,
+      backgroundSize: '40px 40px',
+      position: 'relative',
+      overflow: 'hidden',
+      padding: '80px 0'
+    }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+          <h2 style={{ 
+            fontSize: 'max(2.5rem, 40px)', 
+            fontWeight: 900, 
+            letterSpacing: '-0.02em',
+            margin: 0,
+            textTransform: 'uppercase',
+            background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(0 0 10px rgba(168, 85, 247, 0.3))'
+          }}>
+            Your Reviews Matter
+          </h2>
+          <p style={{ 
+            color: '#94a3b8', 
+            fontSize: 18, 
+            marginTop: 12,
+            fontWeight: 500
+          }}>
+            Your reviews and suggestions help me improve!
+          </p>
         </div>
 
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 40,
-          alignItems: 'start'
+          maxWidth: 650,
+          margin: '0 auto',
+          background: 'rgba(30, 41, 59, 0.7)',
+          backdropFilter: 'blur(12px)',
+          borderRadius: 24,
+          padding: 40,
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.1)'
         }}>
-          {/* Review Form */}
-          <div style={{
-            background: 'var(--bg-card)',
-            borderRadius: 20,
-            padding: 36,
-            border: '1px solid var(--border)',
-            boxShadow: 'var(--shadow-lg)'
+          <h3 style={{ 
+            color: '#fff', 
+            fontSize: 22, 
+            fontWeight: 700, 
+            marginBottom: 32,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 12
           }}>
-            <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 24 }}>
-              ✍️ Write a Review
-            </h3>
-            <Form form={form} layout="vertical" onFinish={handleSubmit}>
-              <Form.Item
-                name="name"
-                rules={[{ required: true, message: 'Please enter your name' }]}
-              >
-                <Input
-                  prefix={<UserOutlined style={{ color: '#5b6af5' }} />}
-                  placeholder={t('reviews.namePlaceholder')}
-                  size="large"
-                  style={{ borderRadius: 10 }}
-                />
-              </Form.Item>
-              <Form.Item
-                name="message"
-                rules={[{ required: true, message: 'Please write your review' }]}
-              >
-                <TextArea
-                  placeholder={t('reviews.messagePlaceholder')}
-                  rows={5}
-                  style={{ borderRadius: 10 }}
-                />
-              </Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                loading={loading}
-                icon={<SendOutlined />}
-                size="large"
-                style={{
-                  width: '100%', borderRadius: 10, height: 48,
-                  fontWeight: 600, fontSize: 15
-                }}
-              >
-                {t('reviews.submit')}
-              </Button>
-            </Form>
-          </div>
+            <span role="img" aria-label="pen"></span> Write to Developer
+          </h3>
 
-          {/* Reviews Display */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            {reviews.length === 0 ? (
-              <div style={{
-                textAlign: 'center', padding: 40,
-                color: 'var(--text-muted)', fontSize: 15
-              }}>
-                <StarFilled style={{ fontSize: 40, color: '#fbbf24', marginBottom: 12, display: 'block' }} />
-                Be the first to leave a review! ⭐
-              </div>
-            ) : (
-              reviews.slice(0, 4).map((r, i) => (
+          <Form form={form} layout="vertical" onFinish={handleSubmit}>
+            <Form.Item
+              name="name"
+              rules={[{ required: true, message: 'Please enter your name' }]}
+            >
+              <Input
+                placeholder="Your Name"
+                size="large"
+                style={{ 
+                  background: 'rgba(15, 23, 42, 0.6)', 
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  color: '#fff',
+                  borderRadius: 12,
+                  height: 56,
+                  fontSize: 16
+                }}
+              />
+            </Form.Item>
+
+            <Form.Item
+              name="message"
+              rules={[{ required: true, message: 'Please write your review' }]}
+            >
+              <TextArea
+                placeholder="Write your message or review here..."
+                rows={5}
+                style={{ 
+                  background: 'rgba(15, 23, 42, 0.6)', 
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  color: '#fff',
+                  borderRadius: 12,
+                  fontSize: 16,
+                  padding: 16
+                }}
+              />
+            </Form.Item>
+
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
+              <Form.Item name="rating" initialValue={5} style={{ marginBottom: 0 }}>
+                <Rate 
+                  style={{ 
+                    fontSize: 32,
+                    color: '#f59e0b'
+                  }} 
+                />
+              </Form.Item>
+            </div>
+
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+              size="large"
+              style={{
+                width: '100%', 
+                borderRadius: 12, 
+                height: 60,
+                fontWeight: 700, 
+                fontSize: 18,
+                background: '#1e293b',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 12
+              }}
+            >
+              Send Directly to Ritik <SendOutlined />
+            </Button>
+          </Form>
+        </div>
+
+        {reviews.length > 0 && (
+          <div style={{ marginTop: 64, textAlign: 'center' }}>
+            <h4 style={{ color: '#64748b', fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 24 }}>Recent Feedback</h4>
+            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 16 }}>
+              {reviews.slice(0, 3).map((r, i) => (
                 <div key={r._id || i} style={{
-                  background: 'var(--bg-card)',
-                  borderRadius: 16, padding: 20,
-                  border: '1px solid var(--border)',
-                  boxShadow: 'var(--shadow-sm)'
+                  background: 'rgba(30, 41, 59, 0.4)',
+                  padding: '16px 24px',
+                  borderRadius: 16,
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  maxWidth: 300,
+                  textAlign: 'left'
                 }}>
-                  <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12 }}>
-                    <Avatar
-                      style={{ background: COLORS[i % COLORS.length], fontWeight: 700 }}
-                      size={40}
-                    >
-                      {r.name?.[0]?.toUpperCase()}
-                    </Avatar>
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: 15 }}>{r.name}</div>
-                      <Rate disabled defaultValue={5} style={{ fontSize: 12 }} />
-                    </div>
-                  </div>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.6 }}>
-                    "{r.message}"
+                  <div style={{ fontWeight: 600, color: '#fff', fontSize: 14 }}>{r.name}</div>
+                  <Rate disabled defaultValue={r.rating || 5} style={{ fontSize: 10, margin: '4px 0' }} />
+                  <p style={{ color: '#94a3b8', fontSize: 13, margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                    {r.message}
                   </p>
                 </div>
-              ))
-            )}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          #reviews .container > div > div:first-child + div {
-            display: none;
-          }
-          #reviews .container > div {
-            grid-template-columns: 1fr !important;
-          }
+        #reviews .ant-input, #reviews textarea {
+          transition: all 0.3s ease;
+        }
+        #reviews .ant-input::placeholder, 
+        #reviews textarea::placeholder {
+          color: #64748b !important;
+        }
+        #reviews .ant-input:focus, #reviews textarea:focus {
+          background: rgba(15, 23, 42, 0.8) !important;
+          border-color: #6366f1 !important;
+          box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+        }
+        #reviews .ant-btn-primary:hover {
+          background: #334155 !important;
+          border-color: rgba(255, 255, 255, 0.2) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5) !important;
+        }
+        #reviews .ant-rate-star:not(:last-child) {
+          margin-right: 12px !important;
+        }
+        #reviews .ant-rate-star-second {
+          color: rgba(255, 255, 255, 0.1);
         }
       `}</style>
     </section>
